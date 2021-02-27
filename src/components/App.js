@@ -38,6 +38,9 @@ class App extends React.Component {
   }
 
   // PET BROWSER FUNCTIONS
+  handleAdopt = () => {
+    return true
+  }
 
   render() {
     return (
@@ -51,7 +54,7 @@ class App extends React.Component {
               <Filters onChangeType={this.handleFilter} onFindPetsClick={this.fetchPets} />
             </div>
             <div className="twelve wide column">
-              <PetBrowser pets={this.state.pets} />
+              <PetBrowser pets={this.state.pets} onAdoptPet={this.handleAdopt} />
             </div>
           </div>
         </div>
