@@ -2,6 +2,17 @@ import React from 'react'
 
 class Pet extends React.Component {
   render() {
+    // console.log("Pet", this.props.pets)
+    this.props.pets.map(pet => console.log(
+        pet.gender,
+        pet.name,
+        pet.type,
+        pet.age,
+        pet.weight,
+        pet.isAdopted
+      )
+    )
+
     return (
       <div className="card">
         <div className="content">
