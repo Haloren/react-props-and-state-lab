@@ -42,7 +42,6 @@ class App extends React.Component {
   // PET BROWSER FUNCTIONS
   handleAdopt = (id) => {
     console.log("handleAdopt", this.state.pets)
-    const pets = this.state.pets
     this.state.pets.find(pet => pet.id === id).isAdopted = true
     this.setState({pets})
    }
