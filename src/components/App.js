@@ -18,13 +18,15 @@ class App extends React.Component {
   handleFilter = (event) => {
     // console.log("handleFilter", event.target.value)
     this.setState({
-      filters: {...this.state.filters, type: event.target.value }
+      filters: {
+        ...this.state.filters, 
+        type: event.target.value 
+      }
     })
   }
 
   fetchPets = () => {
     // console.log("Fetch - Pet Type ", this.state.filters.type)
-    
     let petType = this.state.filters.type
     let apiUrl = '/api/pets'
     petType === 'all' ? apiUrl = '/api/pets' : apiUrl = '/api/pets?type='+petType
@@ -38,9 +40,12 @@ class App extends React.Component {
   }
 
   // PET BROWSER FUNCTIONS
-  handleAdopt = () => {
-    return true
-  }
+  handleAdopt = (id) => {
+    console.log("handleAdopt", this.state.pets)
+    const pets = this.state.pets
+    this.state.pets.find(pet => pet.id === id).isAdopted = true
+    this.setState({pets})
+   }
 
   render() {
     return (

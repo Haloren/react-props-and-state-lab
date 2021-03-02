@@ -2,16 +2,7 @@ import React from 'react'
 
 class Pet extends React.Component {
   render() {
-    console.log("Pet", this.props)
-    // let petCard = this.props.pets.map(pet => console.log(
-    //     pet.gender,
-    //     pet.name,
-    //     pet.type,
-    //     pet.age,
-    //     pet.weight,
-    //     pet.isAdopted
-    //   )
-    // )
+    // console.log("Pet", this.props)
 
     let pet = this.props.pet
 
@@ -33,8 +24,12 @@ class Pet extends React.Component {
           </div>
         </div>
         <div className="extra content">
+          {console.log( "isAdopted", pet.isAdopted, pet.name, pet.id )}
+          {pet.isAdopted ? 
           <button className="ui disabled button">Already adopted</button>
-          <button className="ui primary button">Adopt pet</button>
+          :
+          <button className="ui primary button" onClick={() => this.props.onAdoptPet(pet.id)} >Adopt pet</button>
+          }
         </div>
       </div>
     )
